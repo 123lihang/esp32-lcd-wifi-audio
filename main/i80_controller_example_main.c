@@ -68,6 +68,7 @@ static const char *TAG = "example";
 #define BL_LEDC_CHANNEL       LEDC_CHANNEL_0
 #define BL_LEDC_TIMER         LEDC_TIMER_0
 
+void wifi_init(void);
 // 全局亮度
 static uint8_t s_brightness = 80;  // 初始 80%
 static lv_obj_t *bar_brightness;
@@ -415,6 +416,6 @@ void app_main(void)
     _lock_acquire(&lvgl_api_lock);
     
     example_lvgl_demo_ui(display);
-    
+    wifi_init();
     _lock_release(&lvgl_api_lock);
 }

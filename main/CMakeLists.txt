@@ -3,8 +3,8 @@ if(CONFIG_EXAMPLE_LCD_IMAGE_FROM_EMBEDDED_BINARY)
     file(GLOB_RECURSE embedded_images images/*.c)
 endif()
 
-idf_component_register(SRCS "i80_controller_example_main.c" "lvgl_demo_ui.c" ${embedded_images}
-                       PRIV_REQUIRES esp_lcd spiffs esp_psram driver lvgl
+idf_component_register(SRCS "i80_controller_example_main.c" "lvgl_demo_ui.c" "wifi.c" ${embedded_images}
+                       PRIV_REQUIRES esp_lcd spiffs esp_psram driver lvgl nvs_flash esp_wifi esp_netif esp_event
                        INCLUDE_DIRS ".")
 
 if(CONFIG_EXAMPLE_LCD_IMAGE_FROM_FILE_SYSTEM)
